@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 .markdown a {
@@ -33,4 +35,8 @@
 .markdown ol {
   list-style-type: decimal;
   margin-left: 1rem;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }

@@ -1,3 +1,4 @@
+import uvicorn
 from typing import List, Optional
 
 from fastapi import FastAPI
@@ -19,9 +20,9 @@ app.add_middleware(
 )
 
 client = AsyncOpenAI(
-    api_key="<YOUR-API-KEY-HERE>",
+    api_key="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",
 )
-assistant_id = "<YOUR-ASSISTANT-ID-HERE>"
+assistant_id = "asst_frOEZgqIGs8krtrwIJHjaIYn"
 run_finished_states = ["completed", "failed", "cancelled", "expired", "requires_action"]
 
 
@@ -47,6 +48,11 @@ class Thread(BaseModel):
 
 class CreateMessage(BaseModel):
     content: str
+
+
+@app.get("/")
+async def read_root():
+    return {"Hello": "World"}
 
 
 @app.post("/api/new")
@@ -148,3 +154,6 @@ async def post_thread(thread_id: str, message: CreateMessage):
         required_action=run.required_action,
         last_error=run.last_error
     )
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=8000)

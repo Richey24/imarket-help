@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import Header from "./components/Header";
 import ChatInput from "./components/ChatInput";
@@ -10,11 +10,11 @@ import { useThread } from './hooks/useThread';
 import { useRunPolling } from './hooks/useRunPolling';
 import { useRunRequiredActionsProcessing } from './hooks/useRunRequiredActionsProcessing';
 import { useRunStatus } from './hooks/useRunStatus';
-import {postMessage} from "./services/api";
+import { postMessage } from "./services/api";
 
 function App() {
     const [run, setRun] = useState(undefined);
-    const { threadId, messages, setActionMessages, clearThread} = useThread(run, setRun);
+    const { threadId, messages, setActionMessages, clearThread } = useThread(run, setRun);
     useRunPolling(threadId, run, setRun);
     useRunRequiredActionsProcessing(run, setRun, setActionMessages);
     const { status, processing } = useRunStatus(run);
@@ -48,7 +48,7 @@ function App() {
                         status={status}
                     />
                 )}
-                {processing && <Loading/>}
+                {processing && <Loading />}
                 {messageList}
             </div>
             <div className="my-4">
