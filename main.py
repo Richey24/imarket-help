@@ -12,7 +12,8 @@ app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "http://localhost:3000",  # used to run with react server
+        "http://localhost:3000",
+        "https://thankful-bush-02acf7210.4.azurestaticapps.net"  # used to run with react server
     ],
     allow_credentials=True,
     allow_methods=["*"],
