@@ -1,4 +1,5 @@
 import uvicorn
+import re
 from typing import List, Optional
 
 from fastapi import FastAPI
@@ -119,10 +120,10 @@ async def get_thread(thread_id: str):
     messages = await client.beta.threads.messages.list(
         thread_id=thread_id
     )
-
+    regex_pattern = r"【.*?】"
     result = [
         ThreadMessage(
-            content=message.content[0].text.value,
+            content=re.sub(regex_pattern, '', message.content[0].text.value),
             role=message.role,
             hidden="type" in message.metadata and message.metadata["type"] == "hidden",
             id=message.id,

@@ -1,12 +1,13 @@
 import Markdown from 'react-markdown'
 import { SiOpenai } from "react-icons/si";
 import remarkGfm from "remark-gfm";
+import ib from "./IBI.JPG"
 
 export default function ChatMessage({ message, role }) {
 
     const roleIcon = role === "user"
         ? <div className="rounded-full h-8 w-8 bg-slate-600 flex items-center justify-center font-semibold text-slate-300 shrink-0">C</div>
-        : <div className="rounded-full h-8 w-8 bg-pink-600 flex items-center justify-center font-semibold text-slate-50 shrink-0"><SiOpenai /></div>
+        : <div className="rounded-full h-8 w-8 bg-pink-600 flex items-center justify-center font-semibold text-slate-50 shrink-0"><img src={ib} /></div>
 
     const roleName = role === "user"
         ? "Customer"
