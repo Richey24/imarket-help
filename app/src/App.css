@@ -4,6 +4,10 @@
   scrollbar-width: none;
 }
 
+#app {
+  background-image: url("./components/bg.png");
+}
+
 .markdown a {
   color: theme("colors.pink.300");
 }

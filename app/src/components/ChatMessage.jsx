@@ -6,7 +6,7 @@ import ib from "./IBI.JPG"
 export default function ChatMessage({ message, role }) {
 
     const roleIcon = role === "user"
-        ? <div className="rounded-full h-8 w-8 bg-slate-600 flex items-center justify-center font-semibold text-slate-300 shrink-0">C</div>
+        ? <div className="rounded-full h-8 w-8 bg-slate-400 flex items-center justify-center font-semibold text-slate-100 shrink-0">C</div>
         : <div className="rounded-full h-8 w-8 bg-pink-600 flex items-center justify-center font-semibold text-slate-50 shrink-0"><img src={ib} /></div>
 
     const roleName = role === "user"
@@ -18,7 +18,7 @@ export default function ChatMessage({ message, role }) {
             {roleIcon}
             <div className="p-1 ml-2">
                 <div className="flex-col">
-                    <p className="font-semibold text-slate-400">{roleName}</p>
+                    <p className="font-semibold text-slate-300">{roleName}</p>
                     <Markdown
                         className="text-slate-50 markdown"
                         remarkPlugins={[remarkGfm]}

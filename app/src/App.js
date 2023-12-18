@@ -38,7 +38,7 @@ function App() {
         })
 
     return (
-        <div className="md:container md:mx-auto px-2 lg:px-32 h-screen bg-slate-700 flex flex-col">
+        <div id='app' className=" md:mx-auto px-2 lg:px-32 h-screen bg-slate-700 flex flex-col">
             <Header
                 onNewChat={clearThread}
             />
