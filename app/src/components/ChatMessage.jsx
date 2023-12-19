@@ -7,7 +7,7 @@ export default function ChatMessage({ message, role }) {
 
     const roleIcon = role === "user"
         ? <div className="rounded-full h-8 w-8 bg-slate-400 flex items-center justify-center font-semibold text-slate-100 shrink-0">C</div>
-        : <div className="rounded-full h-8 w-8 bg-pink-600 flex items-center justify-center font-semibold text-slate-50 shrink-0"><img className='rounded-full' src={lily} /></div>
+        : <div className="rounded-full h-12 w-12 bg-pink-600 flex items-center justify-center font-semibold text-slate-50 shrink-0"><img className='rounded-full' src={lily} /></div>
 
     const roleName = role === "user"
         ? "Customer"
