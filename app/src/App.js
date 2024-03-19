@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import Header from "./components/Header";
 import ChatInput from "./components/ChatInput";
@@ -18,6 +18,13 @@ function App() {
     useRunPolling(threadId, run, setRun);
     useRunRequiredActionsProcessing(run, setRun, setActionMessages);
     const { status, processing } = useRunStatus(run);
+
+    useEffect(() => {
+        const allAnchor = document.querySelectorAll("a")
+        allAnchor.forEach((anchor) => {
+            anchor.target = "_blank"
+        })
+    }, [messages])
 
     let messageList = messages
         .toReversed()
