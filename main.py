@@ -142,12 +142,15 @@ async def post_thread(thread_id: str, message: CreateMessage):
     await client.beta.threads.messages.create(
         thread_id=thread_id,
         content=message.content,
-        role="user"
+        role="user",
+        attachments= [
+        { "file_id": 'file-Ynb6YgXjHbxoTy1secWdXOxm', "tools": [{"type": "file_search"}] }
+      ],
     )
 
     run = await client.beta.threads.runs.create(
         thread_id=thread_id,
-        assistant_id=assistant_id
+        assistant_id=assistant_id,
     )
 
     return RunStatus(
