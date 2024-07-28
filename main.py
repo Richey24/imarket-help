@@ -1,5 +1,6 @@
 import uvicorn
 import re
+import os
 from typing import List, Optional
 
 from fastapi import FastAPI
@@ -8,6 +9,9 @@ from openai.types.beta.threads.run import RequiredAction, LastError
 from openai.types.beta.threads.run_submit_tool_outputs_params import ToolOutput
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = FastAPI()
 app.add_middleware(
@@ -23,7 +27,7 @@ app.add_middleware(
 )
 
 client = AsyncOpenAI(
-    api_key="sk-proj-4ZLrXuv1nKNBCS2q25ykT3BlbkFJO6Gng4I6AeldYYfAqoYh",
+    api_key=os.getenv('OPENAI_API_KEY'),
 )
 assistant_id = "asst_frOEZgqIGs8krtrwIJHjaIYn"
 run_finished_states = ["completed", "failed", "cancelled", "expired", "requires_action"]
